@@ -2,9 +2,12 @@
 
 import os
 import re
+import shutil
+import subprocess
 import unittest
 
 
+# Just use the stdlib's `unittest` rather than needing to install `pytest`.
 class TestImage(unittest.TestCase):
 
     def test_version(self):
@@ -41,6 +44,32 @@ class TestImage(unittest.TestCase):
         import civis.futures  # noqa: F401
         import civis.ml  # noqa: F401
         import civis.utils  # noqa: F401
+
+    def test_shell_commands_available(self):
+        """Ensure the main shell commands are available."""
+        # A non-exhaustive list of commands -- we just test those we'd likely use.
+        expected_cmds = "aws civis curl git pip python unzip uv wget".split()
+        for cmd in expected_cmds:
+            self.assertIsNotNone(shutil.which(cmd), f"{cmd} not found in PATH")
+
+    def _test_shell_command(self, cmd: str):
+        """Check if the shell command runs successfully in the image."""
+        try:
+            subprocess.check_call(cmd, shell=True)
+        except subprocess.CalledProcessError as e:
+            self.fail(
+                f"apt-get test failed with return code {e.returncode}\n"
+                f"stdout: {e.stdout}\n"
+                f"stderr: {e.stderr}"
+            )
+
+    def test_apt_get(self):
+        """Ensure that apt-get works in the image."""
+        self._test_shell_command("apt-get update -y && apt-get install -y htop")
+
+    def test_uv(self):
+        """Ensure that uv works in the image."""
+        self._test_shell_command("uv pip install python-iso639")
 
 
 if __name__ == "__main__":

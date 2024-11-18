@@ -1,5 +1,5 @@
 ARG PLATFORM=linux/x86_64
-ARG BASE_IMAGE=python:3.12.6-slim
+ARG BASE_IMAGE=python:3.12.7-slim
 
 # This is the primary build target used for the production image
 FROM --platform=$PLATFORM $BASE_IMAGE AS production
@@ -37,25 +37,24 @@ COPY requirements-full.txt .
 RUN pip install --progress-bar off --no-cache-dir -r requirements-full.txt && \
   rm requirements-full.txt
 
+# Install uv.
+ADD https://astral.sh/uv/0.5.1/install.sh /uv-installer.sh
+RUN sh /uv-installer.sh && rm /uv-installer.sh
+ENV PATH="/root/.local/bin/:$PATH" \
+  UV_SYSTEM_PYTHON=1
+
 # Instruct joblib to use disk for temporary files. Joblib defaults to
 # /shm when that directory is present. In the Docker container, /shm is
 # present but defaults to 64 MB.
 # https://github.com/joblib/joblib/blob/0.11/joblib/parallel.py#L328L342
 ENV JOBLIB_TEMP_FOLDER=/tmp
 
-ENV VERSION=8.0.1 \
+ENV VERSION=8.1.0 \
   VERSION_MAJOR=8 \
-  VERSION_MINOR=0 \
-  VERSION_MICRO=1
+  VERSION_MINOR=1 \
+  VERSION_MICRO=0
 
-# Install the AWSCLI for moving match targets in the QC workflow.
-# See https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html#cliv2-linux-install
-RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
-    unzip awscliv2.zip && \
-    ./aws/install && \
-    rm -rf aws awscliv2.zip
-
-# This build target is for testing in Circle CI.
+# This build target is for testing in CircleCI.
 FROM --platform=$PLATFORM production AS test
 COPY .circleci/test_image.py .
 COPY CHANGELOG.md .
