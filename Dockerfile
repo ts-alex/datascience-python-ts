@@ -29,10 +29,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -y --no-install-recommends && 
   mandoc \
   python3-opencv \
   ffmpeg \
-  libheif \
   imagemagick \
-  phantomjs \
-  chromium-browser \
   unzip && \
   apt-get clean -y && \
   rm -rf /var/lib/apt/lists/*
