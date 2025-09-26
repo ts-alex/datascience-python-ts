@@ -27,6 +27,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -y --no-install-recommends && 
   ca-certificates \
   curl \
   mandoc \
+  python3-opencv \
   unzip && \
   apt-get clean -y && \
   rm -rf /var/lib/apt/lists/*
