@@ -14,6 +14,6 @@ sqlalchemy==1.4.49
 psycopg2==2.9.10
 opencv-python==4.12.0.88
 pillow-heif==1.1.0
-imutils==1.1.0
+imutils==0.5.4
 moviepy==2.2.1
 google-api-python-client==2.183.0
