@@ -36,6 +36,7 @@ civis==2.7.1
 click==8.3.0
     # via
     #   civis
+    #   face-recognition
     #   flask
 cloudpickle==3.1.1
     # via civis
@@ -47,8 +48,16 @@ deepface==0.0.95
     # via -r requirements-core.txt
 distro==1.8.0
     # via awscli
+dlib==20.0.0
+    # via
+    #   -r requirements-core.txt
+    #   face-recognition
 docutils==0.19
     # via awscli
+face-recognition==1.3.0
+    # via -r requirements-core.txt
+face-recognition-models==0.3.0
+    # via face-recognition
 filelock==3.19.1
     # via gdown
 fire==0.7.1
@@ -159,6 +168,7 @@ numpy==2.2.6
     # via
     #   -r requirements-core.txt
     #   deepface
+    #   face-recognition
     #   h5py
     #   imageio
     #   keras
@@ -193,6 +203,7 @@ pandas==2.3.0
 pillow==11.3.0
     # via
     #   deepface
+    #   face-recognition
     #   imageio
     #   moviepy
     #   pillow-heif
@@ -253,7 +264,9 @@ requests==2.32.4
     #   google-api-core
     #   tensorflow
 retina-face==0.0.17
-    # via deepface
+    # via
+    #   -r requirements-core.txt
+    #   deepface
 rich==14.1.0
     # via keras
 rpds-py==0.27.1
@@ -298,10 +311,13 @@ tensorflow==2.20.0
     # via
     #   deepface
     #   retina-face
+    #   tf-keras
 termcolor==3.1.0
     # via
     #   fire
     #   tensorflow
+tf-keras==2.20.1
+    # via -r requirements-core.txt
 threadpoolctl==3.6.0
     # via scikit-learn
 tqdm==4.67.1
