@@ -31,6 +31,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -y --no-install-recommends && 
   ffmpeg \
   imagemagick \
   unzip && \
+  cmake && \
   apt-get clean -y && \
   rm -rf /var/lib/apt/lists/*
 
