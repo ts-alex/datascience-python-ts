@@ -56,6 +56,8 @@ dlib==20.0.0
     #   face-recognition
 docutils==0.19
     # via awscli
+exifread==3.5.1
+    # via -r requirements-core.txt
 face-recognition==1.3.0
     # via -r requirements-core.txt
 face-recognition-models==0.3.0
@@ -111,6 +113,8 @@ httplib2==0.31.0
     #   google-auth-httplib2
 idna==3.10
     # via requests
+image-to-numpy==1.0.0
+    # via -r requirements-core.txt
 imageio==2.37.0
     # via moviepy
 imageio-ffmpeg==0.6.0
@@ -172,6 +176,7 @@ numpy==2.2.6
     #   deepface
     #   face-recognition
     #   h5py
+    #   image-to-numpy
     #   imageio
     #   keras
     #   ml-dtypes
@@ -202,10 +207,13 @@ pandas==2.3.0
     # via
     #   -r requirements-core.txt
     #   deepface
+piexif==1.1.3
+    # via -r requirements-core.txt
 pillow==11.3.0
     # via
     #   deepface
     #   face-recognition
+    #   image-to-numpy
     #   imageio
     #   moviepy
     #   pillow-heif
@@ -236,6 +244,8 @@ pyasn1==0.6.1
     #   rsa
 pyasn1-modules==0.4.2
     # via google-auth
+pyexiftool==0.5.6
+    # via -r requirements-core.txt
 pygments==2.19.2
     # via rich
 pyparsing==3.2.5

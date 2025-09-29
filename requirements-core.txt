@@ -26,3 +26,4 @@ face-recognition==1.3.0
 image_to_numpy==1.0.0
 exifread==3.5.1
 piexif==1.1.3
+pyexiftool==0.5.6
