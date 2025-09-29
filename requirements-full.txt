@@ -40,6 +40,8 @@ click==8.3.0
     #   flask
 cloudpickle==3.1.1
     # via civis
+cmake==4.1.0
+    # via -r requirements-core.txt
 colorama==0.4.6
     # via awscli
 decorator==5.2.1
