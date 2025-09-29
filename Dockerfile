@@ -31,9 +31,11 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -y --no-install-recommends && 
   ffmpeg \
   imagemagick \
   unzip && \
-  cmake && \
   apt-get clean -y && \
   rm -rf /var/lib/apt/lists/*
+
+#run cmake first
+RUN pip install cmake
 
 # Install uv.
 ADD https://astral.sh/uv/0.7.19/install.sh /uv-installer.sh
