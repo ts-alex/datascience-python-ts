@@ -219,6 +219,8 @@ pillow==11.3.0
     #   pillow-heif
     #   retina-face
     #   tensorboard
+pillow-avif-plugin==1.5.2
+    # via -r requirements-core.txt
 pillow-heif==1.1.0
     # via -r requirements-core.txt
 polars==1.31.0
