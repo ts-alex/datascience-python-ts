@@ -31,6 +31,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -y --no-install-recommends && 
   ffmpeg \
   imagemagick \
   unzip && \
+  libimage-exiftool-perl && \
   apt-get clean -y && \
   rm -rf /var/lib/apt/lists/*
 
