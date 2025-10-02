@@ -1,6 +1,7 @@
 # awscli v2 is not officially available on PyPI (https://github.com/aws/aws-cli/issues/4947).
 # Specifying awscli in requirements-core.txt here ensures that it (and its transitive dependencies)
 # are taken into account when generating the final requirements-full.txt file.
+# used to be moviepy 2.2.1
 awscli @ git+https://github.com/aws/aws-cli@2.27.48
 boto3==1.39.2
 civis==2.7.1
@@ -15,7 +16,7 @@ psycopg2==2.9.10
 opencv-python==4.12.0.88
 pillow-heif==1.1.0
 imutils==0.5.4
-moviepy==2.2.1
+moviepy==1.0.3
 google-api-python-client==2.183.0
 deepface==0.0.95
 retina-face==0.0.17
@@ -28,3 +29,4 @@ exifread==3.5.1
 piexif==1.1.3
 pyexiftool==0.5.6
 pillow-avif-plugin==1.5.2
+pytesseract==0.3.13

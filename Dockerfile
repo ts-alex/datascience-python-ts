@@ -30,7 +30,10 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update -y --no-install-recommends && 
   python3-opencv \
   ffmpeg \
   imagemagick \
-  libimage-exiftool-perl && \
+  phantomjs \
+  chromium-browser \
+  tesseract-ocr \
+  libimage-exiftool-perl \
   unzip && \
   apt-get clean -y && \
   rm -rf /var/lib/apt/lists/*
